@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="empns">
+   <!--  로그인 -->
+	<select id="select" parameterType="String" resultType="emp">
+		select * from m_employee where empCd=#{empCd}
+	</select>
+	
+	<select id="productList" resultType="product">
+		SELECT * FROM product
+	</select>
+	
+	<!-- 직원 정보 전체 리스트 불러오기 -->
+	<select id="selectEmployeeList" resultType="employee">
+		SELECT * FROM m_employee
+	</select>
+	
+	<select id="selectEmpNm" parameterType="string" resultType="employee">
+		SELECT * FROm m_employee WHERE empCd=#{empCd}
+	</select>
+	
+	<select id="selectTeam" parameterType="string" resultType="employee">
+		SELECT * FROm m_employee WHERE dept =(select dept from m_employee where empCd=#{empCd})
+	</select>
+</mapper>
